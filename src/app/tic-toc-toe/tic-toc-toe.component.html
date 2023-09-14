@@ -1,0 +1,22 @@
+<div class="tictactoe">
+    <h1>Tic-Tac-Toe</h1>
+    <div class="board">
+      <div class="row" *ngFor="let row of board; let i = index">
+        <div
+          class="cell"
+          *ngFor="let cell of row; let j = index"
+          (click)="makeMove(i, j)"
+        >
+          {{ cell }}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="winner">
+      <h2>{{ winner }} wins!</h2>
+    </div>
+    <div *ngIf="!winner && isBoardFull()">
+      <h2>It's a draw!</h2>
+    </div>
+    <button (click)="resetGame()">Restart</button>
+  </div>
+  
